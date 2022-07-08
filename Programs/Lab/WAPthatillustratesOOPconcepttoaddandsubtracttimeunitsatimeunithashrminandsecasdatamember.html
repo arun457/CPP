@@ -1,0 +1,95 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">#include &ltiostream&gt
+using namespace std;
+
+bool can_proceed = true;
+static int timeindex = 1;
+
+class Time
+{
+    int hr, minute, sec;
+
+public:
+    void input()
+    {
+        cout &lt&lt "Enter the " &lt&lt timeindex &lt&lt "th time in hr, min, sec format: ";
+        cin &gt&gt hr &gt&gt minute &gt&gt sec;
+        timeindex = timeindex + 1;
+    }
+
+    void check_validation(Time t)
+    {
+        int sec_of_t1 = (hr * 3600) + (minute * 60) + sec;
+        int sec_of_t2 = (t.hr * 3600) + (t.minute * 60) + t.sec;
+
+        if (sec_of_t1 &lt sec_of_t2)
+        {
+            cout &lt&lt "You have entered t1&ltt2" &lt&lt endl
+                 &lt&lt "Please Enter t1&gtt2" &lt&lt endl;
+            can_proceed = false;
+        }
+    }
+
+    Time add(Time t)
+    {
+        Time temp;
+        temp.sec = sec + t.sec;
+        temp.minute = minute + t.minute + temp.sec / 60;
+        temp.sec = temp.sec % 60;
+        temp.hr = hr + t.hr + temp.minute / 60;
+        temp.minute = temp.minute % 60;
+        return temp;
+    }
+
+    Time subtract(Time t)
+    {
+        Time temp;
+        if (sec &lt t.sec)
+        {
+            sec = sec + 60;
+            minute = minute - 1;
+        }
+        temp.sec = sec - t.sec;
+        if (minute &lt t.minute)
+        {
+            minute = minute + 60;
+            hr = hr - 1;
+        }
+        temp.minute = minute - t.minute;
+        temp.hr = hr - t.hr;
+        return temp;
+    }
+
+    void display_sum()
+    {
+        cout &lt&lt "The sum of two time is: " &lt&lt hr &lt&lt " hr\t" &lt&lt minute &lt&lt " min\t" &lt&lt sec &lt&lt " sec" &lt&lt endl;
+    }
+
+    void display_difference()
+    {
+        cout &lt&lt "The Difference of two time is: " &lt&lt hr &lt&lt " hr\t" &lt&lt minute &lt&lt " min\t" &lt&lt sec &lt&lt " sec" &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Time t1, t2, t3, t4;
+    cout &lt&lt "Enter the time (t1&gtt2) " &lt&lt endl;
+    t1.input();
+    t2.input();
+    t1.check_validation(t2);
+
+    if (can_proceed != false)
+    {
+        t3 = t1.add(t2);
+        t4 = t1.subtract(t2);
+        t3.display_sum();
+        t4.display_difference();
+    }
+    else
+    {
+        cout &lt&lt "Exitting the Program";
+    }
+    return 0;
+}
+</code></pre> </div> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

@@ -1,0 +1,88 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// Develop a program using a class with 3x3 matrix as data member. Overload the * Operator so as to multiply 3x3 matrices.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Matrix
+{
+    int m[3][3];
+
+public:
+    Matrix()
+    {
+        int i, j;
+        for (i = 0; i &lt 3; i++)
+        {
+            for (j = 0; j &lt 3; j++)
+            {
+                m[i][j] = 0;
+            }
+        }
+    }
+
+    Matrix(int mat[3][3]) // initializing the matrices
+    {
+        int i, j;
+        for (i = 0; i &lt 3; i++)
+        {
+            for (j = 0; j &lt 3; j++)
+            {
+                m[i][j] = mat[i][j];
+            }
+        }
+    }
+
+    Matrix operator*(Matrix x) // multiplying Matrices
+    {
+        Matrix temp;
+        int i, j, k;
+        for (i = 0; i &lt 3; i++)
+        {
+            for (j = 0; j &lt 3; j++)
+            {
+                temp.m[i][j] = 0;
+                for (k = 0; k &lt 3; k++)
+                {
+                    temp.m[i][j] = temp.m[i][j] + m[i][k] * x.m[k][j]; //Multiplying Algorithm
+                }
+            }
+        }
+        return temp;
+    }
+
+    void Display() // Displaying in Matrix Form
+    {
+        int i, j;
+        for (i = 0; i &lt 3; i++)
+        {
+            for (j = 0; j &lt 3; j++)
+            {
+                cout &lt&lt m[i][j] &lt&lt "\t";
+            }
+            cout &lt&lt endl;
+        }
+        cout &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+
+    int mat1[3][3] = {3, 12, 4, 5, 6, 8, 1, 0, 2};
+    int mat2[3][3] = {7, 3, 8, 11, 9, 5, 6, 8, 4};
+
+    Matrix m1(mat1), m2(mat2), m3;
+
+    cout &lt&lt "Matrix 1:" &lt&lt endl;
+    m1.Display();
+
+    cout &lt&lt "Matrix 2:" &lt&lt endl;
+    m2.Display();
+
+    m3 = m1 * m2;
+    cout &lt&lt "The multiplied Matrix is:" &lt&lt endl;
+    m3.Display();
+
+    return 0;
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

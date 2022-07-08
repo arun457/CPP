@@ -1,0 +1,100 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP print the sum, difference and product of two complex numbers by creating a class
+// named 'Complex' with separate functions for each operation whose real and imaginary
+// parts are entered by the user
+
+#include &ltiostream&gt
+using namespace std;
+
+class Complex
+{
+    float real, imaginary;
+
+public:
+    void input()
+    {
+        cout &lt&lt "Enter the real and imaginary part of complex number: ";
+        cin &gt&gt real &gt&gt imaginary;
+    }
+
+    Complex add(Complex c)
+    {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.imaginary = imaginary + c.imaginary;
+        return temp;
+    }
+
+    Complex subtract(Complex c)
+    {
+        Complex temp;
+        temp.real = real - c.real;
+        temp.imaginary = imaginary - c.imaginary;
+        return temp;
+    }
+
+    Complex product(Complex c)
+    {
+        Complex temp;
+        temp.real = (real * c.real) - (imaginary * c.imaginary);
+        temp.imaginary = (real * c.imaginary) + (imaginary * c.real);
+        return temp;
+    }
+
+    void display_sum()
+    {
+        if (imaginary &gt= 0)
+        {
+            cout &lt&lt "The sum of the given Complex numbers are: " &lt&lt real &lt&lt " + " &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+        else
+        {
+            cout &lt&lt "The sum of the given Complex numbers are: " &lt&lt real &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+    }
+
+    void display_difference()
+    {
+        if (imaginary &gt= 0)
+        {
+            cout &lt&lt "The difference of the given Complex numbers are: " &lt&lt real &lt&lt " + " &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+        else
+        {
+            cout &lt&lt "The difference of the given Complex numbers are: " &lt&lt real &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+    }
+
+    void display_product()
+    {
+        if (imaginary &gt= 0)
+        {
+            cout &lt&lt "The product of the given Complex numbers are: " &lt&lt real &lt&lt " + " &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+        else
+        {
+            cout &lt&lt "The product of the given Complex numbers are: " &lt&lt real &lt&lt imaginary &lt&lt "i" &lt&lt endl;
+        }
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Complex c1, c2, c3, c4, c5;
+
+    // Taking input
+    c1.input();
+    c2.input();
+
+    // Doing Operations
+    c3 = c1.add(c2);
+    c4 = c1.subtract(c2);
+    c5 = c1.product(c2);
+
+    // Displaying the results
+    c3.display_sum();
+    c4.display_difference();
+    c5.display_product();
+
+    return 0;
+}</code></pre> </div> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

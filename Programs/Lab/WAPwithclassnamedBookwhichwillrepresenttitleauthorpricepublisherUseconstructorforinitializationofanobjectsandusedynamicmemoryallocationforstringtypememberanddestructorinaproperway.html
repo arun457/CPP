@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css"
+        type="text/css">
+    <link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico"
+        type="image/x-icon">
+    <title>Code</title>
+</head>
+
+<body>
+    <div class="p-3">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab"
+                    href="#code" role="tab" aria-controls="Outlines" aria-selected="true">Code 1</a> </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="code-tab" data-toggle="tab" href="#code2"
+                    role="tab" aria-controls="Outlines" aria-selected="true">Code 2</a> </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video"
+                    role="tab" aria-controls="video" aria-selected="false">Video</a> </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab">
+                <pre><code class="language-cpp">//WAP with class named Book, which will represent title, author, price , publisher. Use 
+//constructor for initialization of an objects and use dynamic memory allocation for string 
+//type member and destructor in a proper way
+
+#include &ltiostream&gt
+using namespace std;
+
+class Book
+{
+    string *title, *author, *publisher;
+    float price;
+
+public:
+    Book(string title_init, string author_init, string publisher_init, float price_init)
+    {
+        title = new string;
+        *title = title_init;
+        author = new string;
+        *author = author_init;
+        publisher = new string;
+        *publisher = publisher_init;
+        price = price_init;
+    }
+
+    void display_data()
+    {
+        cout &lt&lt "Title\tAuthor\tPublisher\tPrice" &lt&lt endl;
+        cout &lt&lt *title &lt&lt "\t" &lt&lt *author &lt&lt "\t" &lt&lt *publisher &lt&lt "\t" &lt&lt price;
+    }
+
+    ~Book()
+    {
+        delete title;
+        delete author;
+        delete publisher;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Book B("Revolution 2020", "Chetan Bhagat", "Books Store India ptv.LTD", 800);
+    B.display_data();
+    return 0;
+}</code></pre>
+            </div>
+            <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+                <h1>Coming Soon</h1>
+            </div>
+
+            <div class="tab-pane fade" id="code2" role="tabpanel" aria-labelledby="code2-tab">
+                 <pre><code class="language-cpp">#include &ltiostream&gt
+#include &ltstring.h&gt
+using namespace std;
+
+class book
+{
+    char *title;
+    char *author;
+    char *publisher;
+    float price;
+
+public:
+    book()
+    {
+        int length = 0;
+        title = new char[length + 1];
+        author = new char[length + 1];
+        publisher = new char[length + 1];
+        price = 0;
+    }
+
+    book(char *t, char *a, char *p, float pl)
+    {
+        int length;
+        length = strlen(t);
+        title = new char[length];
+        strcpy(title, t);
+        length = strlen(a);
+        author = new char[length];
+        strcpy(author, a);
+        length = strlen(p);
+        publisher = new char[length];
+        strcpy(publisher, p);
+        price = pl;
+    }
+
+    void display()
+    {
+        cout &lt&lt "\nTitle of book: " &lt&lt title;
+        cout &lt&lt "\nAuthor of book:" &lt&lt author;
+        cout &lt&lt "\nPublisher of book:" &lt&lt publisher;
+        cout &lt&lt "\nPrice of book:" &lt&lt price;
+    }
+
+    ~book()
+    {
+        delete[] author;
+        delete[] title;
+        delete[] publisher;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    book b2("C++", "Bijarne", "India book", 550);
+    b2.display();
+    return 0;
+}</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script>
+</body>
+
+</html>

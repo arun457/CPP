@@ -1,0 +1,116 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <li class="nav-item" role="presentation"> <a class="nav-link" id="code2-tab" data-toggle="tab" href="#code2" role="tab" aria-controls="Outlines" aria-selected="true">Code 2</a> </li> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP a meaningful program that shows the use of constant object and
+// constant function along with the use of const cast operator.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Facebook
+{
+    string password = "old password";
+    string &amppassword_reference = password;
+
+public:
+    void request_password_change() const
+    {
+        int choice;
+
+        cout &lt&lt "Press 1 to change your password." &lt&lt endl;
+        cout &lt&lt "Press 2 to cancel the operation." &lt&lt endl;
+
+        cin &gt&gt choice;
+
+        switch (choice)
+        {
+        case 1:
+            change_password();
+            break;
+
+        case 2:
+            cout &lt&lt "Operation Cancelled.";
+            exit(0);
+            break;
+
+        default:
+            cout &lt&lt "Invalid input";
+            exit(0);
+            break;
+        }
+    }
+
+    void change_password() const
+    {
+        string new_password;
+        cout &lt&lt "Enter the new Password" &lt&lt endl;
+        cin &gt&gt new_password;
+        string &ampsecond_reference = const_cast&ltstring &amp&gt(password_reference); // removing constantness using const cast
+        second_reference = new_password;                                     // changing password
+    }
+
+    void Password_display() const
+    {
+        cout &lt&lt "password = " &lt&lt password &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+
+    const Facebook user1;
+    user1.Password_display();
+    user1.request_password_change();
+    user1.Password_display();
+
+    return 0;
+}</code></pre> </div> <div class="tab-pane fade show" id="code2" role="tabpanel" aria-labelledby="code2-tab"> <pre><code class="language-cpp">// WAP a meaningful program that shows the use of constant object and
+// constant function along with the use of const cast operator.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Facebook
+{
+    string password = "old password";
+    string &amppassword_reference = password;
+
+public:
+    void request_password_change() const
+    {
+        string choice;
+
+        cout &lt&lt "Are you sure you want to change your Password ?" &lt&lt endl;
+        cin &gt&gt choice;
+
+        if (choice == "yes")
+        {
+            string new_password;
+            cout &lt&lt "Enter the new Password" &lt&lt endl;
+            cin &gt&gt new_password;
+
+            string &ampsecond_reference = const_cast&ltstring &amp&gt(password_reference); // removing constantness using const cast
+            second_reference = new_password;                                     // changing password
+        }
+        else
+        {
+            cout &lt&lt "Operation Cancelled";
+            exit(0);
+        }
+    }
+
+    void Password_display() const
+    {
+        cout &lt&lt "password = " &lt&lt password &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+
+    const Facebook user1;
+    user1.Password_display();
+    user1.request_password_change();
+    user1.Password_display();
+
+    return 0;
+}</code></pre> </div> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

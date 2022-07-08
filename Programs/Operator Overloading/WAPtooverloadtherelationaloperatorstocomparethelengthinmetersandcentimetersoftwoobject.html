@@ -1,0 +1,247 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->  <li class="nav-item" role="presentation"> <a class="nav-link" id="code2-tab" data-toggle="tab" href="#code2" role="tab" aria-controls="Outlines" aria-selected="true">Code 2</a> </li>  <li class="nav-item" role="presentation"> <a class="nav-link" id="code3-tab" data-toggle="tab" href="#code3" role="tab" aria-controls="Outlines" aria-selected="true">Code 3</a> </li> <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP to overload the relational operators to compare the length (in meters and centimeters) of two object
+
+#include &ltiostream&gt
+using namespace std;
+
+class Distance
+{
+    float m, cm;
+
+public:
+    Distance(float x, float y)
+    {
+        m = x;
+        cm = y;
+    }
+
+    bool operator==(Distance d)
+    {
+        if (m == d.m &amp&amp cm == d.cm)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool operator&gt(Distance d)
+    {
+        if (m &gt d.m)
+        {
+            return true;
+        }
+        else if (m == d.m)
+        {
+            if (cm &gt d.cm)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Distance d1(10, 10), d2(10, 6);
+    if ((d1 == d2) == true)
+    {
+        cout &lt&lt "Equal";
+    }
+    else if ((d1 &gt d2) == true)
+    {
+        cout &lt&lt "d1&gtd2";
+    }
+    else
+    {
+        cout &lt&lt "d1&ltd2";
+    }
+    return 0;
+}</code></pre> </div> <!--Here1-->  <div class="tab-pane fade show" id="code2" role="tabpanel" aria-labelledby="code2-tab"> <pre><code class="language-cpp">// WAP to overload the relational operators to compare the length (in meters and centimeters) of two object
+
+#include &ltiostream&gt
+using namespace std;
+
+enum relation_set
+{
+    e,
+    gt,
+    lt
+};
+relation_set relation;
+
+class Distance
+{
+    float m, cm;
+
+public:
+    Distance(float x, float y)
+    {
+        m = x;
+        cm = y;
+    }
+
+    int operator==(Distance d)
+    {
+        if (m &gt d.m)
+        {
+            relation = gt;
+        }
+        else if (m &lt d.m)
+        {
+            relation = lt;
+        }
+        else
+        {
+            if (cm &gt d.cm)
+            {
+                relation = gt;
+            }
+            else if (cm &lt d.cm)
+            {
+                relation = lt;
+            }
+            else
+            {
+                relation = lt;
+            }
+        }
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Distance d1(10, 4), d2(10, 5);
+
+    d1 == d2;
+
+    switch (relation)
+    {
+    case gt:
+        cout &lt&lt "d1&gtd2";
+        break;
+    case lt:
+        cout &lt&lt "d1&ltd2";
+        break;
+    case e:
+        cout &lt&lt "d1 = d2";
+        break;
+    }
+
+    return 0;
+}</code></pre> </div>  <div class="tab-pane fade show" id="code3" role="tabpanel" aria-labelledby="code3-tab"> <pre><code class="language-cpp">// WAP to overload the relational operators to compare the length (in meters and centimeters) of two object
+
+#include &ltiostream&gt
+using namespace std;
+
+class distance1
+{
+    long int meter, centimeter;
+
+public:
+    distance1()
+    {
+        meter = 0;
+        centimeter = 0;
+    }
+
+    void read()
+    {
+        cout &lt&lt "Enter value in Meter and Centimeter: ";
+        cin &gt&gt meter &gt&gt centimeter;
+        centimeter += meter * 100;
+    }
+
+    int operator&gt(distance1 a)
+    {
+        if (centimeter &gt a.centimeter)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    int operator&lt(distance1 a)
+    {
+        if (centimeter &lt a.centimeter)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    int operator==(distance1 a)
+    {
+        if (centimeter == a.centimeter)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    int operator!=(distance1 a)
+    {
+        if (centimeter != a.centimeter)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    void display()
+    {
+        cout &lt&lt meter &lt&lt " Meter and " &lt&lt centimeter &lt&lt " centimeter" &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    distance1 cl, c2, c3, c4;
+
+    cl.read();
+    c2.read();
+
+    if (cl == c2)
+    {
+        cout &lt&lt "The values are equal.";
+    }
+
+    if (cl != c2)
+    {
+        cout &lt&lt "The values are different and ";
+    }
+
+    if (cl &gt c2)
+    {
+        cout &lt&lt "1st value is greater one.";
+    }
+
+    if (cl &lt c2)
+    {
+        cout &lt&lt "2nd value is greater one.";
+    }
+
+    return 0;
+}</code></pre> </div> <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

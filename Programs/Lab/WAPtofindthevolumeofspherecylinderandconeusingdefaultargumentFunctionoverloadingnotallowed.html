@@ -1,0 +1,38 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">#include &ltiostream&gt
+#include &ltmath.h&gt
+#define pi 3.14
+using namespace std;
+
+float volume(float radius = 0, float cylinder_height = 0, float cone_height = 0)
+{
+    if (cylinder_height == 0 &amp&amp cone_height == 0)
+    {
+        cout &lt&lt "Sphere" &lt&lt endl;
+        return ((4 / 3) * pi * pow(radius, 3));
+    }
+    else if (cone_height == 0)
+    {
+        cout &lt&lt "cylinder" &lt&lt endl;
+        return (pi * pow(radius, 2) * cylinder_height);
+    }
+    else if (cylinder_height == 0)
+    {
+        cout &lt&lt "cone" &lt&lt endl;
+        return ((pi * pow(radius, 2) * cone_height) / 3);
+    }
+}
+
+int main()
+{
+    system("CLS");
+    float radius, cylinder_height, cone_height;
+    cout &lt&lt "Enter the radius of sphere: ";
+    cin &gt&gt radius;
+    cout &lt&lt volume(radius) &lt&lt endl;
+    cout &lt&lt "Enter the radius and height of cylinder: ";
+    cin &gt&gt radius &gt&gt cylinder_height;
+    cout &lt&lt volume(radius, cylinder_height) &lt&lt endl;
+    cout &lt&lt "Enter the radius and height of cone: ";
+    cin &gt&gt radius &gt&gt cone_height;
+    cout &lt&lt volume(radius, cone_height) &lt&lt endl;
+}</code></pre> </div> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

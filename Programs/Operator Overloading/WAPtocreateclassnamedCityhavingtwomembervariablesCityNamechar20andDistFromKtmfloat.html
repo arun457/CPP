@@ -1,0 +1,67 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP to create class named City having two member variables CityName (char[20]) and DistFromKtm(float).
+// Add member functions to set and retrieve the CityName and DistFromKtm seperately. Add operator overloading to find the distance between the
+// cities (just find the difference of DistFromKtm) and sum of distances of those cities from Kathmandu.
+// In the main function, initialize three city objects. Set the first and second city to be Pokhara and Dhangadi. Display the sum of DistFromKtm of
+// Pokhara and Dhangadi and Distance between Pokhara and Dhangadi
+
+#include &ltiostream&gt
+#include &ltstring.h&gt
+using namespace std;
+
+class City
+{
+    char CityName[20];
+    float DistFromKtm;
+
+public:
+    City()
+    {
+    }
+
+    City(char *name, float dist)
+    {
+        strcpy(CityName, name);
+        DistFromKtm = dist;
+    }
+
+    City operator+(City c)
+    {
+        City temp;
+        temp.DistFromKtm = DistFromKtm + c.DistFromKtm;
+        return temp;
+    }
+
+    City operator-(City c)
+    {
+        City temp;
+        temp.DistFromKtm = DistFromKtm - c.DistFromKtm;
+        return temp;
+    }
+
+    void display()
+    {
+        cout &lt&lt "City Name = " &lt&lt CityName &lt&lt "\t"
+             &lt&lt "DistFromKtm = " &lt&lt DistFromKtm &lt&lt endl;
+    }
+
+    void display_sum()
+    {
+        cout &lt&lt "Sum of DistFromKtm = " &lt&lt DistFromKtm &lt&lt endl;
+    }
+
+    void display_difference()
+    {
+        cout &lt&lt "Difference of DistFromKtm = " &lt&lt DistFromKtm &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    City c1("Pokhara", 1500), c2("Dhangadi", 1100), c3;
+    c3 = c1 + c2;
+    c3.display_sum();
+    c3 = c1 - c2;
+    c3.display_difference();
+    return 0;
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>
