@@ -4,8 +4,6 @@
 using namespace std;
 #define N 3 // N = Number of Variables
 
-int coeffs[N][N + 1]; // Main input of Coefficients
-
 class Eqn
 {
 public:
@@ -25,7 +23,7 @@ public:
             }
             if (index != NULL) // Bypassing for delta
             {
-                a[i][index] = coeffs[i][N];
+                a[i][index] = init[i][N];
             }
         }
     }
@@ -93,6 +91,7 @@ int main()
 {
     system("CLS");
     int i, j;
+    int coeffs[N][N + 1]; // Main input of Coefficients
     float x, y, z;
 
     // Taking Input
