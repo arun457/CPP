@@ -1,0 +1,79 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP to to calculate the determinant of Matrix of any Dimension.
+
+#include &ltiostream&gt
+#define N 3
+using namespace std;
+
+// Algorithm to calculate Determinant Starts Here
+void subMatrix(int mat[N][N], int temp[N][N], int p, int q, int n)
+{
+    int i = 0, j = 0;
+
+    // filling the sub matrix
+    for (int row = 0; row &lt n; row++)
+    {
+        for (int col = 0; col &lt n; col++)
+        {
+            // skipping if the current row or column is not equal to the current
+            // element row and column
+            if (row != p &amp&amp col != q)
+            {
+                temp[i][j++] = mat[row][col];
+
+                if (j == n - 1)
+                {
+                    j = 0;
+                    i++;
+                }
+            }
+        }
+    }
+}
+
+int determinantOfMatrix(int matrix[N][N], int n = N)
+{
+    int determinant = 0;
+
+    if (n == 1)
+    {
+        return matrix[0][0];
+    }
+
+    if (n == 2)
+    {
+        return (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
+    }
+
+    int temp[N][N], sign = 1;
+
+    for (int i = 0; i &lt n; i++)
+    {
+        subMatrix(matrix, temp, 0, i, n);
+        determinant += sign * matrix[0][i] * determinantOfMatrix(temp, n - 1);
+        sign = -sign;
+    }
+
+    return determinant;
+}
+// Algorithm to calculate Determinant Ends Here
+
+int main()
+{
+    system("CLS");
+    int a[N][N], i, j, det;
+
+    // Taking Input
+    cout &lt&lt "Enter the coeffecients: " &lt&lt endl;
+    for (i = 0; i &lt N; i++)
+    {
+        for (j = 0; j &lt N; j++)
+        {
+            cin &gt&gt a[i][j];
+        }
+    }
+
+    det = determinantOfMatrix(a);
+
+    cout &lt&lt "Determinant of Matrix is: " &lt&lt det;
+    return 0;
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>
