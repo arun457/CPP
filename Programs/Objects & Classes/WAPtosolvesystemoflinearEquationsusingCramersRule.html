@@ -14,7 +14,7 @@ public:
     {
     }
 
-    Eqn(int init[N][N + 1], int index = NULL) // Parameterized Constructor
+    Eqn(int init[N][N + 1], int index = 56) // Parameterized Constructor
     {
         for (int i = 0; i &lt N; i++)
         {
@@ -22,7 +22,7 @@ public:
             {
                 a[i][j] = init[i][j];
             }
-            if (index != NULL) // Bypassing for delta
+            if (index != 56) // Bypassing for delta
             {
                 a[i][index] = init[i][N];
             }
