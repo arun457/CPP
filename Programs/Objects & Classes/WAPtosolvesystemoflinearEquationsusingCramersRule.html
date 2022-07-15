@@ -110,10 +110,10 @@ int main()
     Eqn delta(coeffs), delta1(coeffs, 0), delta2(coeffs, 1), delta3(coeffs, 2);
 
     // Calculating Determinants
-    delta.det = determinantOfMatrix(delta.a, N);
-    delta1.det = determinantOfMatrix(delta1.a, N);
-    delta2.det = determinantOfMatrix(delta2.a, N);
-    delta3.det = determinantOfMatrix(delta3.a, N);
+    delta.det = determinantOfMatrix(delta.a);
+    delta1.det = determinantOfMatrix(delta1.a);
+    delta2.det = determinantOfMatrix(delta2.a);
+    delta3.det = determinantOfMatrix(delta3.a);
 
     // Calculating x, y and z
     x = calculate(delta1, delta);
