@@ -2,7 +2,7 @@
 
 #include &ltiostream&gt
 using namespace std;
-#define N 3 // N = Number of Variables
+#define N 4 // N = Number of Variables
 
 int determinantOfMatrix(int matrix[N][N], int n = N);
 class Eqn
@@ -14,7 +14,7 @@ public:
     {
     }
 
-    Eqn(int init[N][N + 1], int index = 56) // Parameterized Constructor
+    void create_matrix(int init[N][N + 1], int index = 0) // Parameterized Constructor
     {
         for (int i = 0; i &lt N; i++)
         {
@@ -22,9 +22,9 @@ public:
             {
                 a[i][j] = init[i][j];
             }
-            if (index != 56) // Bypassing for delta
+            if (index != 0) // Bypassing for delta
             {
-                a[i][index] = init[i][N];
+                a[i][index - 1] = init[i][N];
             }
         }
     }
@@ -100,7 +100,7 @@ int main()
     system("CLS");
     int i, j;
     int coeffs[N][N + 1]; // Main input of Coefficients
-    float x, y, z;
+    float var[N];
 
     // Taking Input
     cout &lt&lt "Enter the coeffecients: " &lt&lt endl;
@@ -114,24 +114,31 @@ int main()
     }
 
     // Making Objs and Initializing
-    Eqn delta(coeffs), delta1(coeffs, 0), delta2(coeffs, 1), delta3(coeffs, 2);
+    Eqn delta[N + 1];
+    for (i = 0; i &lt N + 1; i++)
+    {
+        delta[i].create_matrix(coeffs, i);
+    }
 
     // Calculating Determinants
-    delta.calculate_det();
-    delta1.calculate_det();
-    delta2.calculate_det();
-    delta3.calculate_det();
+    for (i = 0; i &lt N + 1; i++)
+    {
+        delta[i].calculate_det();
+    }
 
-    // Calculating x, y and z
-    x = calculate(delta1, delta);
-    y = calculate(delta2, delta);
-    z = calculate(delta3, delta);
+    // Calculating variables
+
+    for (i = 0; i &lt N; i++)
+    {
+        var[i] = calculate(delta[i + 1], delta[0]);
+    }
 
     // Displaying
-    cout &lt&lt "The values of x, y and z are: " &lt&lt endl;
-    cout &lt&lt "x = " &lt&lt x &lt&lt "\t"
-         &lt&lt "y = " &lt&lt y &lt&lt "\t"
-         &lt&lt "z = " &lt&lt z;
+    cout &lt&lt "The values of the variables are: " &lt&lt endl;
+    for (i = 0; i &lt N; i++)
+    {
+        cout &lt&lt "variable " &lt&lt i + 1 &lt&lt " = " &lt&lt var[i] &lt&lt endl;
+    }
 
     return 0;
 }</code></pre> </div> <!--Here1-->  <div class="tab-pane fade show" id="code2" role="tabpanel" aria-labelledby="code2-tab"> <pre><code class="language-cpp">// WAP to solve system of linear Equations using Cramer's Rule [For only 3 Variables].
