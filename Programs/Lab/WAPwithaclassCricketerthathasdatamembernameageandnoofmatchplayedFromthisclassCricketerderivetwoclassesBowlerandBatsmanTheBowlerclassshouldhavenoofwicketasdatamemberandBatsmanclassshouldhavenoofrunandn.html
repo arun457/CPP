@@ -1,0 +1,92 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP with a class Cricketer that has data member name, age and no_of_match_played.
+// From this class Cricketer derive two classes Bowler and Batsman. The Bowler class should have
+// no_of_wicket as data member and Batsman class should have no_of_run and no_of_centuries as
+// data members. Use appropriate member functions in all classes to make the program meaningful.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Cricketer
+{
+protected:
+    string name;
+    int age, no_of_match_played;
+
+public:
+    void input()
+    {
+        cout &lt&lt "Name: ";
+        cin &gt&gt name;
+        cout &lt&lt "Age: ";
+        cin &gt&gt age;
+        cout &lt&lt "No. of Matches Played: ";
+        cin &gt&gt no_of_match_played;
+    }
+
+    void display()
+    {
+        cout &lt&lt "Name: " &lt&lt name &lt&lt endl;
+        cout &lt&lt "Age: " &lt&lt age &lt&lt endl;
+        cout &lt&lt "No. of Match Played: " &lt&lt no_of_match_played &lt&lt endl;
+    }
+};
+
+class Bowler : public Cricketer
+{
+    int no_of_wickets;
+
+public:
+    Bowler()
+    {
+        cout &lt&lt "For Bowler: " &lt&lt endl;
+        Cricketer::input();
+        cout &lt&lt "No. of Wickets: ";
+        cin &gt&gt no_of_wickets;
+    }
+
+    void display()
+    {
+        cout &lt&lt "For Bowler: " &lt&lt endl;
+        Cricketer::display();
+        cout &lt&lt "No. of Wickets: " &lt&lt no_of_wickets &lt&lt endl;
+    }
+};
+
+class Batsman : public Cricketer
+{
+    int no_of_run, no_of_centuries;
+
+public:
+    Batsman()
+    {
+        cout &lt&lt "For Batsman: " &lt&lt endl;
+        Cricketer::input();
+        cout &lt&lt "Enter the no of run: ";
+        cin &gt&gt no_of_run;
+        cout &lt&lt "Enter the no of Centuries: ";
+        cin &gt&gt no_of_centuries;
+    }
+
+    void display()
+    {
+        cout &lt&lt "For Batsman: " &lt&lt endl;
+        Cricketer::display();
+        cout &lt&lt "No. of Run: " &lt&lt no_of_run &lt&lt endl;
+        cout &lt&lt "No. of Centuries: " &lt&lt no_of_centuries &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    cout &lt&lt "Enter the Details" &lt&lt endl;
+    Bowler bowler;
+    cout &lt&lt endl;
+    Batsman batsman;
+    cout &lt&lt endl;
+
+    cout &lt&lt "The Entered Details are: " &lt&lt endl;
+    bowler.display();
+    cout &lt&lt endl;
+    batsman.display();
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>

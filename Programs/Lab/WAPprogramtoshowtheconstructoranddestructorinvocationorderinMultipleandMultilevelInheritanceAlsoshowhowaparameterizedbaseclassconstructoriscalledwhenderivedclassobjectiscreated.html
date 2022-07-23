@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css"
+        type="text/css">
+    <link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico"
+        type="image/x-icon">
+    <title>Code</title>
+</head>
+
+<body>
+    <div class="p-3">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab"
+                    href="#code" role="tab" aria-controls="Outlines" aria-selected="true">For Multiple</a> </li>
+            <!--Here1-->
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="code2-tab" data-toggle="tab" href="#code2"
+                    role="tab" aria-controls="Outlines" aria-selected="true">For Multilevel</a> </li>
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="code3-tab" data-toggle="tab" href="#code3"
+                    role="tab" aria-controls="Outlines" aria-selected="true">Parameterized Constructor</a> </li>
+            <!--Here2-->
+            <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video"
+                    role="tab" aria-controls="video" aria-selected="false">Video</a> </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab">
+                <pre><code class="language-cpp">// WAP program to show the constructor and destructor invocation order in Multiple and
+// Multilevel Inheritance. Also show how a parameterized base class constructor is called when
+// derived class object is created.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Base1
+{
+public:
+    Base1()
+    {
+        cout &lt&lt "Base1 Constructor Called." &lt&lt endl;
+    }
+
+    ~Base1()
+    {
+        cout &lt&lt "Base1 Destructor Called." &lt&lt endl;
+    }
+};
+
+class Base2
+{
+public:
+    Base2()
+    {
+        cout &lt&lt "Base2 Constructor Called." &lt&lt endl;
+    }
+
+    ~Base2()
+    {
+        cout &lt&lt "Base2 Destructor Called." &lt&lt endl;
+    }
+};
+
+class Derived : public Base1, public Base2
+{
+public:
+    Derived()
+    {
+        cout &lt&lt "Derived Constructor Called." &lt&lt endl;
+    }
+
+    ~Derived()
+    {
+        cout &lt&lt "Derived Destructor Called." &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Derived obj;
+}</code></pre>
+            </div>
+            <!--Here1-->
+            <div class="tab-pane fade show" id="code2" role="tabpanel" aria-labelledby="code2-tab">
+                <pre><code class="language-cpp">// WAP program to show the constructor and destructor invocation order in Multiple and
+// Multilevel Inheritance. Also show how a parameterized base class constructor is called when
+// derived class object is created.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Base
+{
+public:
+    Base()
+    {
+        cout &lt&lt "Base Constructor Called." &lt&lt endl;
+    }
+
+    ~Base()
+    {
+        cout &lt&lt "Base Destructor Called." &lt&lt endl;
+    }
+};
+
+class Derived1 : public Base
+{
+public:
+    Derived1()
+    {
+        cout &lt&lt "Derived1 Constructor Called." &lt&lt endl;
+    }
+
+    ~Derived1()
+    {
+        cout &lt&lt "Derived1 Destructor Called." &lt&lt endl;
+    }
+};
+
+class Derived2 : public Derived1
+{
+public:
+    Derived2()
+    {
+        cout &lt&lt "Derived2 Constructor Called." &lt&lt endl;
+    }
+
+    ~Derived2()
+    {
+        cout &lt&lt "Derived2 Destructor Called." &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Derived2 obj;
+}</code></pre>
+            </div>
+            <div class="tab-pane fade show" id="code3" role="tabpanel" aria-labelledby="code3-tab">
+                <pre><code class="language-cpp">// WAP program to show the constructor and destructor invocation order in Multiple and
+// Multilevel Inheritance. Also show how a parameterized base class constructor is called when
+// derived class object is created.
+
+#include &ltiostream&gt
+using namespace std;
+
+class Base
+{
+    int x;
+
+public:
+    Base(int m) : x(m)
+    {
+    }
+
+    void display()
+    {
+        cout &lt&lt "X = " &lt&lt x &lt&lt endl;
+    }
+};
+
+class Derived : public Base
+{
+    int y;
+
+public:
+    Derived(int m, int n) : y(n), Base(m)
+    {
+    }
+
+    void display()
+    {
+        Base::display();
+        cout &lt&lt "Y = " &lt&lt y &lt&lt endl;
+    }
+};
+
+int main()
+{
+    system("CLS");
+    Derived obj(1, 2);
+    obj.display();
+    return 0;
+}</code></pre>
+            </div>
+            <!--Here2-->
+            <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+                <h1>Coming Soon</h1>
+            </div>
+        </div>
+    </div>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script>
+    <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script>
+</body>
+
+</html>
