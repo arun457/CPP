@@ -113,6 +113,9 @@ class Result : public Exam, public Sports
 public:
     void display()
     {
+    	display_roll();
+        display_theory_mark();
+        display_sports_mark();
         total_mark = theory_mark + sports_mark;
         cout &lt&lt "Total Marks = " &lt&lt total_mark &lt&lt endl;
     }
