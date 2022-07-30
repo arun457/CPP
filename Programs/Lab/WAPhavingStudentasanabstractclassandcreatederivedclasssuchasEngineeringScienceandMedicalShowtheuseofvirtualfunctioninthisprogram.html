@@ -9,6 +9,7 @@ class Student
 protected:
     int no_of_stds;
 
+public:
     virtual int no_of_students() = 0;
 };
 
@@ -16,6 +17,20 @@ class Engineering : public Student
 {
 public:
     Engineering(int n)
+    {
+        no_of_stds = n;
+    }
+
+    int no_of_students()
+    {
+        return (no_of_stds);
+    }
+};
+
+class Science : public Student
+{
+public:
+    Science(int n)
     {
         no_of_stds = n;
     }
@@ -42,8 +57,14 @@ public:
 
 int main()
 {
+    Student *ptr;
     Engineering e(5);
+    Science s(20);
     Medical m(10);
-    cout &lt&lt "The number of Students in Engineering is: " &lt&lt e.no_of_students() &lt&lt endl;
-    cout &lt&lt "The number of Students in Medical is: " &lt&lt m.no_of_students() &lt&lt endl;
+    ptr = &ampe;
+    cout &lt&lt "The number of Students in Engineering is: " &lt&lt ptr-&gtno_of_students() &lt&lt endl;
+    ptr = &amps;
+    cout &lt&lt "The number of Students in Science is: " &lt&lt ptr-&gtno_of_students() &lt&lt endl;
+    ptr = &ampm;
+    cout &lt&lt "The number of Students in Medical is: " &lt&lt ptr-&gtno_of_students() &lt&lt endl;
 }</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>
