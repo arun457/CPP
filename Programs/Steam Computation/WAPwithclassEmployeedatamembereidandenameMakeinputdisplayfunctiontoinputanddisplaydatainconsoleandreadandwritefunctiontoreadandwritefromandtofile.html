@@ -31,14 +31,12 @@ public:
         ofstream fout("Employee.txt");            // output stream to write to file
         char *c = reinterpret_cast&ltchar *&gt(this); // converting from object to pointer
         fout.write(c, sizeof(*this));             // writing the info of object e to the file
-        fout.close();                             // closing the file
     }
 
     void read()
     {
         ifstream fin("Employee.txt");          // input stream to read from the file
         fin.read((char *)this, sizeof(*this)); // reading from the file --(char *)&ampe1 is equivalent reinterpret cast
-        fin.close();
     }
 };
 
