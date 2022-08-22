@@ -1,0 +1,61 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/CPP-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/CPP-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">POP</a> </li> <!--Here1-->   <li class="nav-item" role="presentation"> <a class="nav-link" id="code2-tab" data-toggle="tab" href="#code2" role="tab" aria-controls="Outlines" aria-selected="true">OOP</a> </li> <!--Here1-->       <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">//WAP to check a number is Prime or not in both OOP and POP.
+
+#include &ltstdio.h&gt
+#include &ltconio.h&gt
+#include &ltstdlib.h&gt
+
+void main()
+{
+    system("cls");
+    int i = 0, n, prime = 1;
+    printf("Enter the number to check: ");
+    scanf("%d", &ampn);
+
+    for (i = 2; i &lt= (n / 2); i++)
+    {
+        if (n % i == 0)
+        {
+            prime = 0;
+            break;
+        }
+    }
+
+    if (prime == 0)
+    {
+        printf("The given number is not Prime.");
+    }
+    else
+    {
+        printf("The given number is Prime");
+    }
+}</code></pre> </div> <!--Here1-->  <div class="tab-pane fade show" id="code2" role="tabpanel" aria-labelledby="code2-tab"> <pre><code class="language-cpp">#include &ltiostream&gt
+using namespace std;
+
+int main()
+{
+    system("CLS");
+    int i, n;
+    bool prime = true;
+
+    cout &lt&lt "Enter the number to check: ";
+    cin &gt&gt n;
+
+    for (i = 2; i &lt= (n / 2); i++)
+    {
+        if (n % i == 0)
+        {
+            prime = false;
+            break;
+        }
+    }
+
+    if (prime == true)
+    {
+        cout &lt&lt "The given number is prime.";
+    }
+    else
+    {
+        cout &lt&lt "The given number is not prime.";
+    }
+    return 0;
+}</code></pre> </div> <!--Here1-->        <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/CPP-Website/js/prism.js"></script> </body> </html>
